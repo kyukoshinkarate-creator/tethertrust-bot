@@ -147,27 +147,20 @@ async def send_price_report():
 
 
         message = f"""
-💎 USDT IR | قیمت لحظه‌ای تتر
+💠 USDT IR
 
-━━━━━━━━━━━━━━━━━━━━
+💵 خرید: {buy_price:,} تومان
+💰 فروش: {sell_price:,} تومان
 
-💵 قیمت خرید:
-{buy_price:,} تومان
+📈 {change_text}
 
-💰 قیمت فروش:
-{sell_price:,} تومان
+🕒 {now.split(" - ")[1]}
+📅 {now.split(" - ")[0]}
 
-📈 تغییر نسبت به بروزرسانی قبل:
-{change_text}
+━━━━━━━━━━━━━━
 
-🕒 ساعت: {now.split(" - ")[1]}
-📅 تاریخ: {now.split(" - ")[0]}
-
-━━━━━━━━━━━━━━━━━━━━
-⚡ بروزرسانی خودکار هر ۱ دقیقه
-
-📢 کانال: @Usdt_irrr
-💬 پشتیبانی: @Atefe_acc
+📢 @Usdt_irrr
+💬 @Atefe_acc
 """
 
 
@@ -319,27 +312,20 @@ async def send_price_report():
 
 
         message = f"""
-💎 USDT IR | قیمت لحظه‌ای تتر
+💠 USDT IR
 
-━━━━━━━━━━━━━━━━━━━━
+💵 خرید: {buy_price:,} تومان
+💰 فروش: {sell_price:,} تومان
 
-💵 قیمت خرید:
-{buy_price:,} تومان
+📈 {change_text}
 
-💰 قیمت فروش:
-{sell_price:,} تومان
+🕒 {now.split(" - ")[1]}
+📅 {now.split(" - ")[0]}
 
-📈 تغییر نسبت به بروزرسانی قبل:
-{change_text}
+━━━━━━━━━━━━━━
 
-🕒 ساعت: {now.split(" - ")[1]}
-📅 تاریخ: {now.split(" - ")[0]}
-
-━━━━━━━━━━━━━━━━━━━━
-⚡ بروزرسانی خودکار هر ۱ دقیقه
-
-📢 کانال: @Usdt_irrr
-💬 پشتیبانی: @Atefe_acc
+📢 @Usdt_irrr
+💬 @Atefe_acc
 """
 
 
@@ -395,7 +381,7 @@ async def send_morning_report():
 {get_morning_message()}
 
 🕒 شروع روز معاملاتی
-📅 TetherTrust
+📅 TetherIr
 
 ⚜️ اعتبار، ارزِ ماندگارِ ماست.
 
