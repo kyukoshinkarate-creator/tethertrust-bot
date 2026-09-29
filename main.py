@@ -147,7 +147,7 @@ async def send_price_report():
 
 
         message = f"""
-💠 TETHERTRUST | مرجع تتر
+💠| مرجع تتر
 
 ┏━━━━━━━━━━┓
 💵 خرید:
@@ -160,7 +160,7 @@ async def send_price_report():
 
 🕒 {now.strftime("%H:%M")}
 📅 {jalali_date}
-
+@Usdt_irrr
 ┗━━━━━━━━━━┛
 """
 
@@ -313,7 +313,7 @@ async def send_price_report():
 
 
         message = f"""
- 💠 TETHERTRUST | مرجع تتر
+ 💠| مرجع تتر
 
 ┏━━━━━━━━━━┓
 💵 خرید:
@@ -326,7 +326,7 @@ async def send_price_report():
 
 🕒 {now.split(" - ")[1]}
 📅 {now.split(" - ")[0]}
-
+@Usdt_irrr
 ┗━━━━━━━━━━┛
 """
 
@@ -387,8 +387,8 @@ async def send_morning_report():
 
 ⚜️ اعتبار، ارزِ ماندگارِ ماست.
 
-📢 کانال رسمی: @TetherTrust_Official
-🎧 پشتیبانی: @TetherTrust_Support
+📢 کانال رسمی: @Usdt_irrr
+🎧 پشتیبانی: @Atefe_acc
 
 ┗━━━━━━━━━━┛
 """
@@ -431,7 +431,7 @@ async def send_night_report():
 
 
         message = f"""
-💠 TETHERTRUST | گزارش روزانه
+💠| گزارش روزانه
 
 ┏━━━━━━━━━━┓
 
@@ -459,8 +459,8 @@ async def send_night_report():
 
 ⚜️ اعتبار، ارزِ ماندگارِ ماست.
 
-📢 کانال رسمی: @TetherTrust_Official
-🎧 پشتیبانی: @TetherTrust_Support
+📢 کانال رسمی: @Usdt_irrr
+🎧 پشتیبانی: @Atefe_acc
 
 ┗━━━━━━━━━━┛
 """
@@ -500,7 +500,7 @@ async def main():
     scheduler.add_job(
         send_price_report,
         "interval",
-        minutes=15
+        minutes=1
     )
 
 
