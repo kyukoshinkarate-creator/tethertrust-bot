@@ -147,24 +147,27 @@ async def send_price_report():
 
 
         message = f"""
-💠 <b>TETHERTRUST | قیمت لحظه‌ای تتر</b>
+💎 USDT IR | قیمت لحظه‌ای تتر
 
-━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━
 
-💵 <b>خرید:</b> <code>{buy_price:,}</code> تومان
-💰 <b>فروش:</b> <code>{sell_price:,}</code> تومان
+💵 قیمت خرید:
+{buy_price:,} تومان
 
-📈 <b>تغییر قیمت:</b>
-<code>{change_text}</code>
+💰 قیمت فروش:
+{sell_price:,} تومان
 
-🕒 <b>ساعت:</b> {now.split(" - ")[1]}
-📅 <b>تاریخ:</b> {now.split(" - ")[0]}
+📈 تغییر نسبت به بروزرسانی قبل:
+{change_text}
 
-━━━━━━━━━━━━━━━━━━
+🕒 ساعت: {now.split(" - ")[1]}
+📅 تاریخ: {now.split(" - ")[0]}
+
+━━━━━━━━━━━━━━━━━━━━
 ⚡ بروزرسانی خودکار هر ۱ دقیقه
 
-📢 @Usdt_irrr
-🎧 @Atefe_acc
+📢 کانال: @Usdt_irrr
+💬 پشتیبانی: @Atefe_acc
 """
 
 
@@ -316,24 +319,27 @@ async def send_price_report():
 
 
         message = f"""
-💠 <b>TETHERTRUST | قیمت لحظه‌ای تتر</b>
+💎 USDT IR | قیمت لحظه‌ای تتر
 
-━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━
 
-💵 <b>خرید:</b> <code>{buy_price:,}</code> تومان
-💰 <b>فروش:</b> <code>{sell_price:,}</code> تومان
+💵 قیمت خرید:
+{buy_price:,} تومان
 
-📈 <b>تغییر قیمت:</b>
-<code>{change_text}</code>
+💰 قیمت فروش:
+{sell_price:,} تومان
 
-🕒 <b>ساعت:</b> {now.split(" - ")[1]}
-📅 <b>تاریخ:</b> {now.split(" - ")[0]}
+📈 تغییر نسبت به بروزرسانی قبل:
+{change_text}
 
-━━━━━━━━━━━━━━━━━━
+🕒 ساعت: {now.split(" - ")[1]}
+📅 تاریخ: {now.split(" - ")[0]}
+
+━━━━━━━━━━━━━━━━━━━━
 ⚡ بروزرسانی خودکار هر ۱ دقیقه
 
-📢 @Usdt_irrr
-🎧 @Atefe_acc
+📢 کانال: @Usdt_irrr
+💬 پشتیبانی: @Atefe_acc
 """
 
 
