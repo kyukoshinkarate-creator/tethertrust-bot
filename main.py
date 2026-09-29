@@ -147,21 +147,24 @@ async def send_price_report():
 
 
         message = f"""
-💠| مرجع تتر
+💠 <b>TETHERTRUST | قیمت لحظه‌ای تتر</b>
 
-┏━━━━━━━━━━┓
-💵 خرید:
-{buy_price:,} تومان
-🔵 فروش:
-{sell_price:,} تومان
+━━━━━━━━━━━━━━━━━━
 
-📈 روند:
-{change_text}
+💵 <b>خرید:</b> <code>{buy_price:,}</code> تومان
+💰 <b>فروش:</b> <code>{sell_price:,}</code> تومان
 
-🕒 {now.strftime("%H:%M")}
-📅 {jalali_date}
-@Usdt_irrr
-┗━━━━━━━━━━┛
+📈 <b>تغییر قیمت:</b>
+<code>{change_text}</code>
+
+🕒 <b>ساعت:</b> {now.split(" - ")[1]}
+📅 <b>تاریخ:</b> {now.split(" - ")[0]}
+
+━━━━━━━━━━━━━━━━━━
+⚡ بروزرسانی خودکار هر ۱ دقیقه
+
+📢 @Usdt_irrr
+🎧 @Atefe_acc
 """
 
 
