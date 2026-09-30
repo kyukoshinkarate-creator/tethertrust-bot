@@ -13,13 +13,13 @@ BOT_TOKEN = os.getenv(
 
 CHANNEL_ID = os.getenv(
     "CHANNEL_ID",
-    "@TetherTrust_Official"
+    "@Usdt_irrr"
 )
 
 
 SUPPORT_ID = os.getenv(
     "SUPPORT_ID",
-    "@TetherTrust_Support"
+    "@Mhd_sorena"
 )
 
 
