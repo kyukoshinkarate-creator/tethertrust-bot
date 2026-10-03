@@ -161,16 +161,15 @@ async def send_price_report():
 
 
 
-        message = f"""
-💠 نرخ لحظه ای usdt
-💵 خرید: {buy_price:,} تومان
-💰 فروش: {sell_price:,} تومان
+        message = f"""💵 نرخ لحظه‌ای تتر (USDT)
 
-📈 {change_text}
-🕒 {now.split(" - ")[1]}
-📅 {now.split(" - ")[0]}
-💬 @Atefe_acc
+💰 {price:,} تومان
+
+🕒 {current_time}
+📅 {current_date}
+🏦 @atefe_acc
 """
+    
 
 
         await telegram_service.send_message(
@@ -320,15 +319,13 @@ async def send_price_report():
         now = datetime_now()
 
 
-        message = f"""
-💠 نرخ لحظه ای usdt
-💵 خرید: {buy_price:,} تومان
-💰 فروش: {sell_price:,} تومان
+        message = f"""💵 نرخ لحظه‌ای تتر (USDT)
 
-📈 {change_text}
-🕒 {now.split(" - ")[1]}
-📅 {now.split(" - ")[0]}
-💬 @Atefe_acc
+💰 {price:,} تومان
+
+🕒 {current_time}
+📅 {current_date}
+🏦 @atefe_acc
 """
 
 
