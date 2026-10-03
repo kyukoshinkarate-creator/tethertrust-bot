@@ -502,7 +502,7 @@ async def main():
     scheduler.add_job(
         send_price_report,
         "interval",
-        minutes=1
+        minutes=5
     )
 
 
