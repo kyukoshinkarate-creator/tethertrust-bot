@@ -161,11 +161,18 @@ async def send_price_report():
 
 
 
-        message = f"""USDT | قیمت لحظه‌ای
+        message = f"""
+💠 USDT IR | قیمت لحظه‌ای
 
-💰 {current_price:,} تومان
+💵 خرید: {buy_price:,}
+💰 فروش: {sell_price:,}
 
-🕒 {time}
+📈 {change_text}
+
+🕒 {now.split(" - ")[1]} | 📅 {now.split(" - ")[0]}
+
+📢 @Usdt_irrr
+💬 @Atefe_acc
 """
     
 
@@ -317,11 +324,18 @@ async def send_price_report():
         now = datetime_now()
 
 
-        message = f"""USDT | قیمت لحظه‌ای
+        message = f"""
+💠 USDT IR | قیمت لحظه‌ای
 
-💰 {current_price:,} تومان
+💵 خرید: {buy_price:,}
+💰 فروش: {sell_price:,}
 
-🕒 {time}
+📈 {change_text}
+
+🕒 {now.split(" - ")[1]} | 📅 {now.split(" - ")[0]}
+
+📢 @Usdt_irrr
+💬 @Atefe_acc
 """
 
 
