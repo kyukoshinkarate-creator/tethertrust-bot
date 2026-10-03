@@ -168,8 +168,6 @@ async def send_price_report():
 🔴 فروش: {sell_price:,}
 
 🕒 {now.split(" - ")[1]} | 📅 {now.split(" - ")[0]}
-
-💬 @Atefe_acc
 """
     
 
@@ -328,8 +326,6 @@ async def send_price_report():
 🔴 فروش: {sell_price:,}
 
 🕒 {now.split(" - ")[1]} | 📅 {now.split(" - ")[0]}
-
-💬 @Atefe_acc
 """
 
 
