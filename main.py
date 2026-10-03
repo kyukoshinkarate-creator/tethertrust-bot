@@ -163,7 +163,7 @@ async def send_price_report():
 
         message = f"""USDT | قیمت لحظه‌ای
 
-💰 {price['price']:,} تومان
+💰 {current_price:,} تومان
 
 🕒 {time}
 """
@@ -319,7 +319,7 @@ async def send_price_report():
 
         message = f"""USDT | قیمت لحظه‌ای
 
-💰 {price['price']:,} تومان
+💰 {current_price:,} تومان
 
 🕒 {time}
 """
