@@ -161,14 +161,11 @@ async def send_price_report():
 
 
 
-        message = f"""
-        💵 نرخ لحظه‌ای تتر (USDT)
+        message = f"""USDT | قیمت لحظه‌ای
 
-💰 {price:,} تومان
+💰 {price['price']:,} تومان
 
-🕒 {current_time}
-📅 {current_date}
-🏦 @atefe_acc
+🕒 {time}
 """
     
 
@@ -320,14 +317,11 @@ async def send_price_report():
         now = datetime_now()
 
 
-        message = f"""
-        💵 نرخ لحظه‌ای تتر (USDT)
+        message = f"""USDT | قیمت لحظه‌ای
 
-💰 {price:,} تومان
+💰 {price['price']:,} تومان
 
-🕒 {current_time}
-📅 {current_date}
-🏦 @atefe_acc
+🕒 {time}
 """
 
 
