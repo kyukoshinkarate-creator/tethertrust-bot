@@ -162,19 +162,13 @@ async def send_price_report():
 
 
         message = f"""
-💠 USDT IR
-
+💠 نرخ لحظه ای usdt
 💵 خرید: {buy_price:,} تومان
 💰 فروش: {sell_price:,} تومان
 
 📈 {change_text}
-
 🕒 {now.split(" - ")[1]}
 📅 {now.split(" - ")[0]}
-
-━━━━━━━━━━━━━━
-
-📢 @Usdt_irrr
 💬 @Atefe_acc
 """
 
@@ -327,19 +321,13 @@ async def send_price_report():
 
 
         message = f"""
-💠 USDT IR
-
+💠 نرخ لحظه ای usdt
 💵 خرید: {buy_price:,} تومان
 💰 فروش: {sell_price:,} تومان
 
 📈 {change_text}
-
 🕒 {now.split(" - ")[1]}
 📅 {now.split(" - ")[0]}
-
-━━━━━━━━━━━━━━
-
-📢 @Usdt_irrr
 💬 @Atefe_acc
 """
 
