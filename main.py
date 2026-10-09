@@ -162,7 +162,7 @@ async def send_price_report():
 
 
         message = f"""
-💠 USDT IR | قیمت لحظه‌ای 💠
+💠 NovaX Exchange | قیمت لحظه‌ای 💠
 
 🟢 خرید: {buy_price:,}
 🔴 فروش: {sell_price:,}
@@ -320,7 +320,7 @@ async def send_price_report():
 
 
         message = f"""
-💠 USDT IR | قیمت لحظه‌ای 💠
+💠 NovaX Exchange | قیمت لحظه‌ای 💠
 
 🟢 خرید: {buy_price:,}
 🔴 فروش: {sell_price:,}
@@ -374,18 +374,18 @@ async def send_morning_report():
     try:
 
         message = f"""
-💠 TETHERTRUST | مرجع تتر
+💠 NovaX Exchange | مرجع تتر
 
 ┏━━━━━━━━━━┓
 
 {get_morning_message()}
 
 🕒 شروع روز معاملاتی
-📅 TetherIr
+📅 NovaX Exchange
 
 ⚜️ اعتبار، ارزِ ماندگارِ ماست.
 
-📢 کانال رسمی: @Usdt_irrr
+📢 کانال رسمی: @NovaExchangeIR
 🎧 پشتیبانی: @Atefe_acc
 
 ┗━━━━━━━━━━┛
@@ -429,7 +429,7 @@ async def send_night_report():
 
 
         message = f"""
-💠| گزارش روزانه
+💠 NovaX Exchange | گزارش روزانه
 
 ┏━━━━━━━━━━┓
 
@@ -457,7 +457,7 @@ async def send_night_report():
 
 ⚜️ اعتبار، ارزِ ماندگارِ ماست.
 
-📢 کانال رسمی: @Usdt_irrr
+📢 کانال رسمی: @NovaExchangeIR
 🎧 پشتیبانی: @Atefe_acc
 
 ┗━━━━━━━━━━┛
