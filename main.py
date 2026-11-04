@@ -286,7 +286,7 @@ async def send_price_report():
         buy_price = current_price
 
 
-                save_history(
+    save_history(
             current_price,
             sell_price,
             sources,
