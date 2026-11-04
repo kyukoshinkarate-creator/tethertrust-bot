@@ -301,9 +301,9 @@ async def send_price_report():
         )
 
 
-    now = datetime_now()
+        now = datetime_now()
 
-message = f"""
+    message = f"""
 💠 NovaX Exchange | قیمت لحظه‌ای 💠
 🟢 خرید:
 {buy_price:,} تومان
