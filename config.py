@@ -7,19 +7,19 @@ load_dotenv()
 
 
 BOT_TOKEN = os.getenv(
-    "8616982240:AAGVHsK0aUZ5g5Oyw5ODdyFr9UvfR4j32Do"
+    "8655862466:AAFhuKFPMaeqs1752ovXUEZ3xL8gft_JVHA"
 )
 
 
 CHANNEL_ID = os.getenv(
     "CHANNEL_ID",
-    "@TetherTrust_Official"
+    "@NovaExchangeIR"
 )
 
 
 SUPPORT_ID = os.getenv(
     "SUPPORT_ID",
-    "@TetherTrust_Support"
+    "@atefe_acc"
 )
 
 
