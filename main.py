@@ -147,21 +147,13 @@ async def send_price_report():
 
 
         message = f"""
-💠 TETHERTRUST | مرجع تتر
-
-┏━━━━━━━━━━┓
-💵 خرید:
+💠 NovaX Exchange | قیمت لحظه‌ای 💠
+🟢 خرید:
 {buy_price:,} تومان
-🔵 فروش:
+🔴 فروش:
 {sell_price:,} تومان
-
-📈 روند:
-{change_text}
-
 🕒 {now.strftime("%H:%M")}
 📅 {jalali_date}
-
-┗━━━━━━━━━━┛
 """
 
 
@@ -313,21 +305,13 @@ async def send_price_report():
 
 
         message = f"""
- 💠 TETHERTRUST | مرجع تتر
-
-┏━━━━━━━━━━┓
-💵 خرید:
+💠 NovaX Exchange | قیمت لحظه‌ای 💠
+🟢 خرید:
 {buy_price:,} تومان
-🔵 فروش:
+🔴 فروش:
 {sell_price:,} تومان
-
-📈 روند بازار:
-{change_text}
-
-🕒 {now.split(" - ")[1]}
-📅 {now.split(" - ")[0]}
-
-┗━━━━━━━━━━┛
+🕒 {now.strftime("%H:%M")}
+📅 {jalali_date}
 """
 
 
@@ -376,7 +360,7 @@ async def send_morning_report():
     try:
 
         message = f"""
-💠 TETHERTRUST | مرجع تتر
+💠 NovaX Exchange | قیمت لحظه‌ای 💠
 
 ┏━━━━━━━━━━┓
 
@@ -387,8 +371,8 @@ async def send_morning_report():
 
 ⚜️ اعتبار، ارزِ ماندگارِ ماست.
 
-📢 کانال رسمی: @TetherTrust_Official
-🎧 پشتیبانی: @TetherTrust_Support
+📢 کانال رسمی: @NovaExchangeIR
+🎧 پشتیبانی: @atefe_acc
 
 ┗━━━━━━━━━━┛
 """
@@ -459,8 +443,8 @@ async def send_night_report():
 
 ⚜️ اعتبار، ارزِ ماندگارِ ماست.
 
-📢 کانال رسمی: @TetherTrust_Official
-🎧 پشتیبانی: @TetherTrust_Support
+📢 کانال رسمی: @NovaExchangeIR
+🎧 پشتیبانی: @atefe_acc
 
 ┗━━━━━━━━━━┛
 """
