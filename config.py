@@ -7,7 +7,6 @@ load_dotenv()
 
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
-)
 
 
 CHANNEL_ID = os.getenv(
