@@ -1,376 +1,147 @@
 import asyncio
-
-from datetime import timezone, timedelta
-
-
-from apscheduler.schedulers.asyncio import AsyncIOScheduler
-
-
-from config import PRICE_INTERVAL
-
-
-from price_service import get_average_price
-
-
-from history_manager import (
-    save_history,
-    get_daily_stats
-)
-
-
-from alerts import create_alert
-
-
-from morning_messages import get_morning_message
-
-
-from telegram_service import telegram_service
-
-
-from logger import logger
-
+from datetime import datetime, timezone, timedelta
 
 import jdatetime
+from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
+from config import PRICE_INTERVAL
+from price_service import get_average_price
+from history_manager import save_history, get_daily_stats
+from alerts import create_alert
+from morning_messages import get_morning_message
+from telegram_service import telegram_service
+from logger import logger
 
 
 # -------------------------
 # Tehran Time
 # -------------------------
-
-TEHRAN = timezone(
-    timedelta(
-        hours=3,
-        minutes=30
-    )
-)
-
+TEHRAN = timezone(timedelta(hours=3, minutes=30))
 
 
 # -------------------------
 # Last Price
 # -------------------------
-
 last_price = None
 
+
+# -------------------------
+# Date and Time
+# -------------------------
+def datetime_now():
+    now = datetime.now(TEHRAN)
+    jalali = jdatetime.datetime.fromgregorian(datetime=now)
+    return f"{jalali.strftime('%Y/%m/%d')} - {now.strftime('%H:%M')}"
 
 
 # -------------------------
 # Send Price Report
 # -------------------------
-
 async def send_price_report():
-
-    global last_price
-
-
-    try:
-
-        result = await get_average_price()
-
-
-        if not result:
-
-            logger.warning(
-                "No price received"
-            )
-
-            return
-           
-            
-        current_price = result["price"]
-
-
-        sources = result["sources"]
-
-
-
-        change_amount = 0
-
-        change_percent = 0
-
-        change_text = f"{change_amount:+,}\n({change_percent:+.2f}%)"
-
-
-
-        if last_price:
-
-
-            change_amount = (
-                current_price
-                -
-                last_price
-            )
-
-
-            change_percent = (
-
-                change_amount
-
-                /
-
-                last_price
-
-                *
-
-                100
-
-            )
-
-        change_text = f"{change_amount:+,                  }\n({change_percent:+.2f}%)"
-
-
-
-        sell_price = (
-            current_price
-            +
-            150
-        )
-        buy_price = current_price
-
-
-
-        save_history(
-
-            current_price,
-
-            sell_price,
-
-            sources,
-
-            change_amount,
-
-            change_percent
-
-        )
-
-
-
-        message = f"""
-💠 NovaX Exchange | قیمت لحظه‌ای 💠
-🟢 خرید:
-{buy_price:,} تومان
-🔴 فروش:
-{sell_price:,} تومان
-🕒 {now.strftime("%H:%M")}
-📅 {jalali_date}
-"""
-
-
-        await telegram_service.send_message(
-            message
-        )
-
-
-        if last_price:
-
-            alert = create_alert(
-
-                current_price,
-
-                last_price
-
-            )
-
-
-            if alert:
-
-                await telegram_service.send_message(
-                    alert
-                )
-
-
-
-        last_price = current_price
-
-
-
-        logger.info(
-            "Price sent successfully"
-        )
-
-
-    except Exception as error:
-
-
-        logger.error(
-            error
-        )
-
-
-
-def datetime_now():
-
-    from datetime import datetime
-
-    now = datetime.now(
-        TEHRAN
-    )
-
-
-    jalali = jdatetime.datetime.fromgregorian(
-        datetime=now
-    )
-
-
-    return (
-        f"{jalali.strftime('%Y/%m/%d')}"
-        f" - "
-        f"{now.strftime('%H:%M')}"
-    )
-    
-async def send_price_report():
-
     global last_price
 
     try:
-
         result = await get_average_price()
 
         if not result:
-
-            logger.warning(
-                "No price received"
-            )
-
+            logger.warning("No price received")
             return
 
-
         current_price = result["price"]
-
         sources = result["sources"]
 
-
         change_amount = 0
-
-        change_percent = 0
-
+        change_percent = 0.0
 
         if last_price:
+            change_amount = current_price - last_price
+            change_percent = (change_amount / last_price) * 100
 
-            change_amount = (
-                current_price
-                -
-                last_price
-            )
-
-
-            change_percent = (
-
-                change_amount
-
-                /
-
-                last_price
-
-                *
-
-                100
-
-            )
-
-
-        change_text = (
-            f"{change_amount:+,}\n"
-            f"({change_percent:+.2f}%)"
-        )
-
-
-        sell_price = (
-            current_price
-            +
-            150
-        )
-
-
+        sell_price = current_price + 150
         buy_price = current_price
-
 
         save_history(
             current_price,
             sell_price,
             sources,
             change_amount,
-            change_percent
+            change_percent,
         )
 
         now = datetime_now()
-
-        message = f"""
-💠 NovaX Exchange | قیمت لحظه‌ای 💠
+        message = f"""💠 NovaX Exchange | قیمت لحظه‌ای 💠
 🟢 خرید:
-{buy_price:,} تومان
+{buy_price:,.0f} تومان
 🔴 فروش:
-{sell_price:,} تومان
+{sell_price:,.0f} تومان
+📊 تغییر نسبت به گزارش قبل:
+{change_amount:+,.0f} تومان ({change_percent:+.2f}%)
 🕒 {now}
 """
 
         await telegram_service.send_message(message)
 
         if last_price:
-            alert = create_alert(
-                current_price,
-                last_price
-            )
-
+            alert = create_alert(current_price, last_price)
             if alert:
                 await telegram_service.send_message(alert)
 
         last_price = current_price
-
         logger.info("Price sent successfully")
 
-    except Exception as error:
-        logger.error(error)
+    except Exception:
+        logger.exception("Error while sending price report")
 
+
+# -------------------------
+# Morning Report
+# -------------------------
+async def send_morning_report():
+    try:
+        message = get_morning_message()
+        if message:
+            await telegram_service.send_message(message)
+            logger.info("Morning report sent")
+    except Exception:
+        logger.exception("Error while sending morning report")
 
 
 # -------------------------
 # Night Report
 # -------------------------
-
 async def send_night_report():
-
     try:
-
         stats = get_daily_stats()
 
-
         if not stats:
-
-            logger.warning(
-                "No daily stats available"
-            )
-
+            logger.warning("No daily stats available")
             return
 
-
-        message = f"""
-💠 TETHERTRUST | گزارش روزانه
+        message = f"""💠 TETHERTRUST | گزارش روزانه
 
 ┏━━━━━━━━━━┓
 
 📊 آمار امروز بازار تتر
 
 💵 شروع:
-{stats["first"]:,} تومان
+{stats["first"]:,.0f} تومان
 
 🔵 پایان:
-{stats["last"]:,} تومان
+{stats["last"]:,.0f} تومان
 
 ⬆️ بالاترین:
-{stats["high"]:,} تومان
+{stats["high"]:,.0f} تومان
 
 ⬇️ پایین‌ترین:
-{stats["low"]:,} تومان
+{stats["low"]:,.0f} تومان
 
 📈 تغییر روز:
-{stats["change"]:+,} تومان
+{stats["change"]:+,.0f} تومان
 
 ({stats["percent"]:+.2f}%)
 
 📌 میانگین:
-{stats["average"]:,} تومان
+{stats["average"]:,.0f} تومان
 
 ⚜️ اعتبار، ارزِ ماندگارِ ماست.
 
@@ -380,86 +151,56 @@ async def send_night_report():
 ┗━━━━━━━━━━┛
 """
 
+        await telegram_service.send_message(message)
+        logger.info("Night report sent")
 
-        await telegram_service.send_message(
-            message
-        )
-
-
-        logger.info(
-            "Night report sent"
-        )
+    except Exception:
+        logger.exception("Error while sending night report")
 
 
-    except Exception as error:
-
-        logger.exception(
-            error
-        )
-  # -------------------------
+# -------------------------
 # Main Runner
 # -------------------------
-
 async def main():
+    logger.info("Starting TetherTrust Bot...")
 
-    logger.info(
-        "Starting TetherTrust Bot..."
-    )
-
-
-    scheduler = AsyncIOScheduler(
-        timezone=TEHRAN
-    )
-
+    scheduler = AsyncIOScheduler(timezone=TEHRAN)
 
     scheduler.add_job(
         send_price_report,
         "interval",
-        minutes=1
+        minutes=PRICE_INTERVAL,
+        max_instances=1,
+        coalesce=True,
     )
-
 
     scheduler.add_job(
         send_morning_report,
         "cron",
         hour=7,
-        minute=59
+        minute=59,
     )
-
 
     scheduler.add_job(
         send_night_report,
         "cron",
         hour=23,
-        minute=59
+        minute=59,
     )
-
 
     scheduler.start()
 
-
+    # Send one price report immediately when the bot starts.
     await send_price_report()
 
-
-    logger.info(
-        "TetherTrust Bot is running"
-    )
-
+    logger.info("TetherTrust Bot is running")
 
     while True:
-
-        await asyncio.sleep(
-            60
-        )
-
+        await asyncio.sleep(60)
 
 
 # -------------------------
 # Start Program
 # -------------------------
-
 if __name__ == "__main__":
-
-    asyncio.run(
-        main()
-    )
+    asyncio.run(main())
