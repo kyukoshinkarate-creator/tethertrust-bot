@@ -24,4 +24,4 @@ SUPPORT_ID = os.getenv(
 HISTORY_FILE = "history.json"
 
 
-PRICE_INTERVAL = 10
+PRICE_INTERVAL = 1
