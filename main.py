@@ -286,24 +286,17 @@ async def send_price_report():
         buy_price = current_price
 
 
-        save_history(
-
+                save_history(
             current_price,
-
             sell_price,
-
             sources,
-
             change_amount,
-
             change_percent
-
         )
-
 
         now = datetime_now()
 
-    message = f"""
+        message = f"""
 💠 NovaX Exchange | قیمت لحظه‌ای 💠
 🟢 خرید:
 {buy_price:,} تومان
@@ -312,83 +305,23 @@ async def send_price_report():
 🕒 {now}
 """
 
-
-        await telegram_service.send_message(
-            message
-        )
-
+        await telegram_service.send_message(message)
 
         if last_price:
-
             alert = create_alert(
-
                 current_price,
-
                 last_price
-
             )
 
-
             if alert:
-
-                await telegram_service.send_message(
-                    alert
-                )
-
+                await telegram_service.send_message(alert)
 
         last_price = current_price
 
-
-        logger.info(
-            "Price sent successfully"
-        )
-
+        logger.info("Price sent successfully")
 
     except Exception as error:
-
-        logger.error(
-            error
-        )
- # -------------------------
-# Morning Report
-# -------------------------
-
-async def send_morning_report():
-
-    try:
-
-        message = f"""
-💠 NovaX Exchange | قیمت لحظه‌ای 💠
-
-┏━━━━━━━━━━┓
-
-{get_morning_message()}
-
-🕒 شروع روز معاملاتی
-📅 TetherTrust
-
-⚜️ اعتبار، ارزِ ماندگارِ ماست.
-
-📢 کانال رسمی: @NovaExchangeIR
-🎧 پشتیبانی: @atefe_acc
-
-┗━━━━━━━━━━┛
-"""
-
-        await telegram_service.send_message(
-            message
-        )
-
-        logger.info(
-            "Morning report sent"
-        )
-
-
-    except Exception as error:
-
-        logger.exception(
-            error
-        )
+        logger.error(error)
 
 
 
