@@ -74,7 +74,6 @@ async def send_price_report():
 {buy_price:,.0f} تومان
 🔴 فروش:
 {sell_price:,.0f} تومان
-📊 تغییر نسبت به گزارش قبل:
 {change_amount:+,.0f} تومان ({change_percent:+.2f}%)
 🕒 {now}
 """
