@@ -147,7 +147,7 @@ async def send_price_report():
 
 
         message = f"""
-💠 TETHERTRUST | مرجع تتر
+💠 TETHERTRUST| مرجع تتر
 
 ┏━━━━━━━━━━┓
 💵 خرید:
